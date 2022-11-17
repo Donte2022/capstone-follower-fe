@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DisplayService} from "../display.service";
+import {IStage} from "../main/interfaces/IStage";
+import {HttpService} from "../http.service";
+import {first} from "rxjs";
 
 @Component({
   selector: 'app-main-display',
@@ -8,13 +11,33 @@ import {DisplayService} from "../display.service";
 })
 export class MainDisplayComponent implements OnInit {
 
-  constructor(private displayService: DisplayService) { }
+
+  latestStageList!: IStage[];
+
+  constructor(private displayService: DisplayService,
+              private httpService: HttpService) {
+
+    this.httpService.getStages()
+        .pipe(first()).subscribe({
+      next: (data) => {
+        console.log(data)
+        // @ts-ignore
+        this.latestStageList = data;
+        console.log(this.latestStageList)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
 
   ngOnInit(): void {
 
   }
 
-  takeSurvey() {
+
+
+  takeSurvey(displayInfo: IStage) {
     console.log("taking survey")
     this.displayService.$isViewingMain.next(false);
     this.displayService.$isTakingSurvey.next(true);
