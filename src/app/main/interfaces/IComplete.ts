@@ -2,7 +2,7 @@ export interface IComplete
 
 {
     id: number;
-    title: String;
+    StageTitle: String;
     startDate: Date;
     endDate: Date;
     description: string;

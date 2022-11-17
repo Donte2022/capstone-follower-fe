@@ -1,7 +1,7 @@
 export interface IStage
 {
     id: number;
-    title: String;
+    StageTitle: String;
     startDate: Date;
     endDate: Date;
     description: string;

@@ -3,15 +3,16 @@
 <h4>Select A Stage</h4>
 
 <div *ngFor=" let displayInfo of latestStageList">
-    <div>
-        <div><b> Title: </b> {{displayInfo.title}}</div>
-    </div>
-    <div>
+            <br>
+        <div><b> Stage Title: </b> {{displayInfo.StageTitle}}</div>
+<!--    <br>-->
         <div><b> Description: </b> {{displayInfo.description}}</div>
-    </div>
-
-
+<!--    <br>-->
+        <div><b> Start Date: </b> {{displayInfo.startDate | date}}</div>
+<!--    <br>-->
+        <div><b> End Date: </b> {{displayInfo.endDate | date}}</div>
+        <br>
 <div>
-    <button (click)="takeSurvey(displayInfo)" class="btn btn-sucess">Start Survey</button>
+    <button (click)="takeSurvey(displayInfo)" class="btn btn-success">Start Survey</button>
 </div>
 </div>
