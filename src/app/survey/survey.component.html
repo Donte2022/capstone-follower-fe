@@ -1,6 +1,33 @@
 <p>survey works!</p>
 
+<form #completeStage="ngForm" (ngSubmit)="submitStage(completeStage.value)">
+<div *ngFor=" let displayInfo of stageData">
+    <div>
+        <b>ID:</b> {{displayInfo.id}}
+    </div>
+    <div>
+        <b>Stage Title:</b> {{displayInfo.StageTitle}}
+    </div>
+    <div>
+       <b>Description:</b> {{displayInfo.description}}
+    </div>
+    <div>
+        <b>Start Date:</b>{{displayInfo.startDate | date}}
+    </div>
+    <div>
+        <b>End Date:</b>{{displayInfo.endDate | date}}
+    </div>
 
-<div>
-<button (click)="onCancel()">Cancel</button>
+
+    <div class="input-group mb-3">
+        <input type="text" name="prompt" [ngModel]="responseText">
+    </div>
+    <div class="input-group mb-3">
+<input type="text" name="response" [ngModel]="responseText">
+    </div>
 </div>
+
+    <button type="submit" >Submit</button>
+    </form>
+<button (click)="onCancel()">Cancel</button>
+

@@ -39,6 +39,7 @@ export class MainDisplayComponent implements OnInit {
 
   takeSurvey(displayInfo: IStage) {
     console.log("taking survey")
+    console.log(displayInfo)
     this.displayService.$isViewingMain.next(false);
     this.displayService.$isTakingSurvey.next(true);
   }

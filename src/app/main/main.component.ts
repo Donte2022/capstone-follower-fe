@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from "../http.service";
+import {DisplayService} from "../display.service";
 
 @Component({
   selector: 'app-main',
@@ -8,9 +9,15 @@ import {HttpService} from "../http.service";
 })
 export class MainComponent implements OnInit {
 
-  constructor(private httpService: HttpService) { }
+  constructor(private httpService: HttpService,
+              private displayService: DisplayService) { }
 
   ngOnInit(): void {
   }
 
+  exitApp() {
+    this.displayService.$isViewingMain.next(false);
+    this.displayService.$isTakingSurvey.next(false);
+    this.displayService.$isViewingWelcome.next(true);
+  }
 }
