@@ -1,33 +1,80 @@
 <p>survey works!</p>
 
-<form #completeStage="ngForm" (ngSubmit)="submitStage(completeStage.value)">
-<div *ngFor=" let displayInfo of stageData">
-    <div>
-        <b>ID:</b> {{displayInfo.id}}
-    </div>
-    <div>
-        <b>Stage Title:</b> {{displayInfo.StageTitle}}
-    </div>
-    <div>
-       <b>Description:</b> {{displayInfo.description}}
-    </div>
-    <div>
-        <b>Start Date:</b>{{displayInfo.startDate | date}}
-    </div>
-    <div>
-        <b>End Date:</b>{{displayInfo.endDate | date}}
-    </div>
+
+<div *ngFor=" let displayInfo of latestStageList">
+    <br>
+    <div><b> ID: </b> {{displayInfo.id}}</div>
+    <br>
+    <div><b> Title ID: </b> {{displayInfo.idOfTitle}}</div>
+    <br>
+    <div><b> Stage Title: </b> {{displayInfo.StageTitle}}</div>
+    <br>
 
 
-    <div class="input-group mb-3">
-        <input type="text" name="prompt" [ngModel]="responseText">
+    <div *ngFor="let processInfo of latestProcessList">
+        <br>
+        <div><b> Process: </b> {{processInfo.process}}</div>
+        <br>
+        <div><b> Prompt: </b> {{processInfo.prompt}}</div>
+
     </div>
-    <div class="input-group mb-3">
-<input type="text" name="response" [ngModel]="responseText">
-    </div>
-</div>
+    <br><br>
+
+
+
+
+    <!--<form [formGroup]="stageForm" #completeStage="ngForm" (ngSubmit)="submitStage(completeStage.value)">-->
+<!--<div *ngFor=" let displayInfo of stageData">-->
+<!--    <div [(ngModel)]="displayInfo.id" name="id">-->
+<!--        <input [(ngModel)]="displayInfo.id" type="radio">-->
+<!--        <b>ID:</b> {{displayInfo.id}}-->
+<!--    </div>-->
+<!--    <div [(ngModel)]="displayInfo.stageTitle" name="StageTitle">-->
+<!--        <b>Stage Title:</b> {{displayInfo.stageTitle}}-->
+<!--    </div>-->
+<!--    <div [(ngModel)]="displayInfo.description" name="description">-->
+<!--       <b>Description:</b> {{displayInfo.description}}-->
+<!--    </div>-->
+<!--    <div [(ngModel)]="displayInfo.startDate" name="startDate">-->
+<!--        <b>Start Date:</b>{{displayInfo.startDate | date}}-->
+<!--    </div>-->
+<!--    <div [(ngModel)]="displayInfo.endDate" name="endDate">-->
+<!--        <b>End Date:</b>{{displayInfo.endDate | date}}-->
+<!--    </div>-->
+
+<!--    <h2 id="promptsRemaining"></h2>-->
+
+<!--    <div id="prompts">prompts goes here</div>-->
+
+<!--    <div>-->
+<!--    <input formControlName="prompt" type="radio" [(ngModel)]="displayInfo.id" name="prompt">-->
+<!--    <b></b> {{displayInfo.description}}-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <input formControlName="process" type="radio"  name="prompt">-->
+<!--        <b></b> {{displayInfo.description}}-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <input formControlName="response" type="radio" [(ngModel)]="displayInfo.id" name="prompt">-->
+<!--        <b></b> {{displayInfo.description}}-->
+<!--    </div>-->
+
+
+<!--    <div class="input-group mb-3">-->
+<!--        <input type="text" name="prompt" [ngModel]="responseText">-->
+<!--    </div>-->
+<!--    <div class="input-group mb-3">-->
+<!--<input type="text" name="response" [ngModel]="responseText">-->
+<!--    </div>-->
+<!--</div>-->
+<!--</form>-->
+
+
+
 
     <button type="submit" >Submit</button>
-    </form>
+
 <button (click)="onCancel()">Cancel</button>
 
