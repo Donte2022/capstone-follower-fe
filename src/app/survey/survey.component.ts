@@ -13,16 +13,12 @@ import {HttpService} from "../http.service";
   styleUrls: ['./survey.component.css']
 })
 export class SurveyComponent implements OnInit {
-
-  // title = "stageForm"
-  // stageForm!: FormGroup;
-
+  
   latestStageList!: IStage[];
   latestProcessList!: IStage[];
 
 
   stageData =
-      // !: IStage
       [
         {
           "id": 1,
@@ -32,10 +28,6 @@ export class SurveyComponent implements OnInit {
           "description": "Things that makes you smile"
         }
       ]
-
-  // "idOfTitle": 1
-  // "process": string,
-  // prompt: string
 
   responseText: any;
   prompt: any;
@@ -50,10 +42,8 @@ export class SurveyComponent implements OnInit {
         console.log(data)
         // @ts-ignore
         this.latestStageList = data;
-        console.log(this.latestStageList)
       },
       error: (err) => {
-        console.log(err)
       }
     })
 
@@ -64,36 +54,22 @@ export class SurveyComponent implements OnInit {
         console.log(data)
         // @ts-ignore
         this.latestProcessList = data;
-        console.log(this.latestProcessList)
       },
       error: (err) => {
-        console.log(err)
       }
     })
 
   }
 
   ngOnInit(): void {
-    // this.stageForm = new FormGroup({
-    //   stageTitle: new FormGroup(null),
-    //   startDate: new FormGroup(null),
-    //   endDate: new FormGroup(null),
-    //   description: new FormGroup(null),
-    //   process: new FormGroup(null),
-    //   prompt: new FormGroup(null),
-    //   response: new FormGroup(null)
-    // });
   }
 
     onCancel() {
-        console.log("back to main")
       this.displayService.$isTakingSurvey.next(false);
         this.displayService.$isViewingMain.next(true);
     }
 
   submitStage(completeStage: NgForm) {
-    console.log("submitting survey")
-    console.log(completeStage)
     this.displayService.$isViewingMain.next(true);
     this.displayService.$isTakingSurvey.next(false);
     this.displayService.$isViewingWelcome.next(false);

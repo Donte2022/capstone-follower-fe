@@ -23,10 +23,8 @@ export class MainDisplayComponent implements OnInit {
         console.log(data)
         // @ts-ignore
         this.latestStageList = data;
-        console.log(this.latestStageList)
       },
       error: (err) => {
-        console.log(err)
       }
     })
   }
@@ -38,8 +36,6 @@ export class MainDisplayComponent implements OnInit {
 
 
   takeSurvey(displayInfo: IStage) {
-    console.log("taking survey")
-    console.log(displayInfo)
     this.displayService.$isViewingMain.next(false);
     this.displayService.$isTakingSurvey.next(true);
   }
