@@ -1,5 +1,6 @@
 <p>survey works!</p>
 
+<div>
 
 <div *ngFor=" let displayInfo of latestStageList">
     <br>
@@ -8,18 +9,29 @@
     <div><b> Title ID: </b> {{displayInfo.idOfTitle}}</div>
     <br>
     <div><b> Stage Title: </b> {{displayInfo.StageTitle}}</div>
-    <br>
-
-
-    <div *ngFor="let processInfo of latestProcessList">
-        <br>
-        <div><b> Process: </b> {{processInfo.process}}</div>
-        <br>
-        <div><b> Prompt: </b> {{processInfo.prompt}}</div>
-
-    </div>
     <br><br>
+</div>
 
+<div>
+    <div *ngFor="let process of latestProcessList">
+        <label>
+            <div><b>{{process.process}}</b></div>
+        </label>
+    </div>
+
+    <div *ngFor="let prompts of latestProcessList">
+    <label>
+        <input type="radio"
+                [(ngModel)]="responseText"
+        value="{{prompts}}"
+        name="{{prompts.id}}"/>
+        {{prompts.prompt}}
+    </label>
+    </div>
+</div>
+
+</div>
+    <br><br>
 
 
 
@@ -73,8 +85,8 @@
 
 
 
+<div>
+    <button class="btn btn-success" type="submit" >Submit</button>
 
-    <button type="submit" >Submit</button>
-
-<button (click)="onCancel()">Cancel</button>
-
+<button class="btn btn-danger" (click)="onCancel()">Cancel</button>
+</div>

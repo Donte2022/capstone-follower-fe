@@ -38,6 +38,7 @@ export class SurveyComponent implements OnInit {
   // prompt: string
 
   responseText: any;
+  prompt: any;
 
   constructor(private displayService: DisplayService,
               private surveyService: SurveyService,
