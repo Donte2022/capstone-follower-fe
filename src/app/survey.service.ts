@@ -25,13 +25,19 @@ export class SurveyService {
           const stage: IComplete = {
             id: completeStage.id,
             idOfTitle: completeStage.idOfTitle,
-            StageTitle: completeStage.StageTitle,
+            stageTitle: completeStage.stageTitle,
             startDate: completeStage.startDate,
             endDate: completeStage.endDate,
             description: completeStage.description,
-            prompt: completeStage.prompt,
             process: completeStage.process,
+            prompt: completeStage.prompt,
+            prompt2: completeStage.prompt2,
+            prompt3: completeStage.prompt3,
+            prompt4: completeStage.prompt4,
             response: completeStage.response,
+            response2: completeStage.response2,
+            response3: completeStage.response3,
+            response4: completeStage.response4
           }
 
           this.httpService.completeStage(stage).subscribe({

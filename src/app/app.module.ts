@@ -8,6 +8,8 @@ import { MainComponent } from './main/main.component';
 import { MainDisplayComponent } from './main-display/main-display.component';
 import { SurveyComponent } from './survey/survey.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import {NgbAlertModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -24,6 +26,10 @@ import { WelcomeComponent } from './welcome/welcome.component';
       FormsModule,
       ReactiveFormsModule,
       HttpClientModule,
+    NgbModule,
+      NgbAlertModule,
+      CommonModule
+      
 
 
 

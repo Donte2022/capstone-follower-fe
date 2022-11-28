@@ -6,6 +6,7 @@ import {IComplete} from "../main/interfaces/IComplete";
 import {FormGroup, NgForm} from "@angular/forms";
 import {first} from "rxjs";
 import {HttpService} from "../http.service";
+import {IPrompt} from "../main/interfaces/IPrompt";
 
 @Component({
   selector: 'app-survey',
@@ -16,6 +17,7 @@ export class SurveyComponent implements OnInit {
   
   latestStageList!: IStage[];
   latestProcessList!: IStage[];
+  latestPromptList!: IPrompt[];
 
 
   stageData =
@@ -31,6 +33,9 @@ export class SurveyComponent implements OnInit {
 
   responseText: any;
   prompt: any;
+  prompt2: any;
+  prompt3: any;
+  prompt4: any;
 
   constructor(private displayService: DisplayService,
               private surveyService: SurveyService,
@@ -48,12 +53,12 @@ export class SurveyComponent implements OnInit {
     })
 
 
-    this.httpService.getProcess()
+    this.httpService.getPrompts()
         .pipe(first()).subscribe({
       next: (data) => {
         console.log(data)
         // @ts-ignore
-        this.latestProcessList = data;
+        this.latestPromptList = data;
       },
       error: (err) => {
       }
