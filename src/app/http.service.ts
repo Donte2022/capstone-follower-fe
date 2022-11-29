@@ -5,6 +5,7 @@ import {IStage} from "./main/interfaces/IStage";
 import {IComplete} from "./main/interfaces/IComplete";
 import {IProcess} from "./main/interfaces/IProcess";
 import {IPrompt} from "./main/interfaces/IPrompt";
+import {ITitle} from "./main/interfaces/ITitle";
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,12 @@ export class HttpService {
     return this.httpClient.get(
         "http://localhost:8080/api/stage/all"
     ) as Observable<IStage>;
+  }
+
+  getTitles() {
+    return this.httpClient.get(
+        "http://localhost:8080/api/titles/all"
+    ) as Observable<ITitle>;
   }
 
   getProcess() {

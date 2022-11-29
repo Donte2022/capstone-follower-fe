@@ -1,24 +1,20 @@
 
 <div>
-
-<div *ngFor=" let displayInfo of latestStageList" class="m-3">
-    <br>
-    <div><b> ID: </b> {{displayInfo.id}}</div>
-    <br>
-    <div><b> Title ID: </b> {{displayInfo.idOfTitle}}</div>
-    <br>
-    <div><b> Stage Title: </b> {{displayInfo.StageTitle}}</div>
-    <br><br>
-</div>
+<form >
+<!--<div *ngFor=" let displayInfo of latestStageList" class="m-3">-->
+<!--&lt;!&ndash;    <div><b> ID: </b> {{displayInfo.id}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div><b> Title ID: </b> {{displayInfo.i}}</div>&ndash;&gt;-->
+<!--&lt;!&ndash;    <div><b> Stage Title: </b> {{displayInfo.stageTitle}}</div>&ndash;&gt;-->
+<!--</div>-->
 
 <div class="m-3">
     <div *ngFor="let process of latestPromptList">
         <label>
-            <div><b>{{process.process}}</b></div>
-            <br>
+            <div class="text-primary"><b>{{process.process}}</b></div>
+            <div class="text-success">
             <label>
                 <input type="radio"
-                       [(ngModel)]="responseText"
+                       [(ngModel)]="response"
                        value="{{prompt}}"
                        name="{{process.id}}"/>
                 {{process.prompt}}
@@ -26,7 +22,7 @@
             <br>
             <label>
                 <input type="radio"
-                       [(ngModel)]="responseText"
+                       [(ngModel)]="response2"
                        value="{{prompt2}}"
                        name="{{process.id}}"/>
                 {{process.prompt2}}
@@ -34,7 +30,7 @@
             <br>
             <label>
                 <input type="radio"
-                       [(ngModel)]="responseText"
+                       [(ngModel)]="response3"
                        value="{{prompt3}}"
                        name="{{process.id}}"/>
                 {{process.prompt3}}
@@ -42,30 +38,20 @@
             <br>
             <label>
                 <input type="radio"
-                       [(ngModel)]="responseText"
+                       [(ngModel)]="response4"
                        value="{{prompt4}}"
                        name="{{process.id}}"/>
                 {{process.prompt4}}
             </label>
+            </div>
         </label>
+
     </div>
-
-
-<!--    <div *ngFor="let prompts of latestPromptList">-->
-<!--    <label>-->
-<!--        <input type="radio"-->
-<!--                [(ngModel)]="responseText"-->
-<!--        value="{{prompts}}"-->
-<!--        name="{{prompts.id}}"/>-->
-<!--        {{prompts.prompt}}-->
-<!--    </label>-->
-<!--    </div>-->
 </div>
-
+</form>
 </div>
-    <br><br>
-<div>
-    <button class="btn btn-success" type="submit" >Submit</button>
-
-<button class="btn btn-warning" (click)="onCancel()">Cancel</button>
+    <br>
+<div class="m-3">
+    <button class="btn btn-success opacity-75" type="submit" >Submit</button>
+    <button class="btn btn-primary opacity-75" (click)="onCancel()">Cancel</button>
 </div>

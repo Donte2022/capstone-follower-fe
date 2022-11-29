@@ -7,6 +7,7 @@ import {FormGroup, NgForm} from "@angular/forms";
 import {first} from "rxjs";
 import {HttpService} from "../http.service";
 import {IPrompt} from "../main/interfaces/IPrompt";
+import {ITitle} from "../main/interfaces/ITitle";
 
 @Component({
   selector: 'app-survey',
@@ -15,7 +16,7 @@ import {IPrompt} from "../main/interfaces/IPrompt";
 })
 export class SurveyComponent implements OnInit {
   
-  latestStageList!: IStage[];
+  latestStageList!: ITitle[];
   latestProcessList!: IStage[];
   latestPromptList!: IPrompt[];
 
@@ -36,6 +37,10 @@ export class SurveyComponent implements OnInit {
   prompt2: any;
   prompt3: any;
   prompt4: any;
+  response: any;
+  response2: any;
+  response3: any;
+  response4: any;
 
   constructor(private displayService: DisplayService,
               private surveyService: SurveyService,
@@ -75,9 +80,9 @@ export class SurveyComponent implements OnInit {
     }
 
   submitStage(completeStage: NgForm) {
-    this.displayService.$isViewingMain.next(true);
+    this.displayService.$isViewingMain.next(false);
     this.displayService.$isTakingSurvey.next(false);
-    this.displayService.$isViewingWelcome.next(false);
+    this.displayService.$isViewingWelcome.next(true);
     this.surveyService.submitStage(completeStage.value);
   }
 }
