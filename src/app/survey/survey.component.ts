@@ -33,14 +33,14 @@ export class SurveyComponent implements OnInit {
       ]
 
   responseText: any;
-  prompt: any;
-  prompt2: any;
-  prompt3: any;
-  prompt4: any;
-  response: any;
-  response2: any;
-  response3: any;
-  response4: any;
+  prompt: string | undefined;
+  prompt2: string | undefined;
+  prompt3: string | undefined;
+  prompt4: string | undefined;
+  response: string | undefined;
+  response2: string | undefined;
+  response3: string | undefined;
+  response4: string | undefined;
 
   constructor(private displayService: DisplayService,
               private surveyService: SurveyService,
@@ -79,7 +79,9 @@ export class SurveyComponent implements OnInit {
         this.displayService.$isViewingMain.next(true);
     }
 
-  submitStage(completeStage: NgForm) {
+  submitForm(completeStage: NgForm) {
+    console.log("submitting results")
+    console.log(completeStage)
     this.displayService.$isViewingMain.next(false);
     this.displayService.$isTakingSurvey.next(false);
     this.displayService.$isViewingWelcome.next(true);

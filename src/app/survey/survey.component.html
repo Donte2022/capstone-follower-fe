@@ -8,53 +8,61 @@
 </div>
 
 <div>
-<form >
+<form #followerForm="ngForm" (ngSubmit)="submitForm(followerForm.value)">
 <div class="m-3">
     <div *ngFor="let process of latestPromptList">
         <label>
             <br>
-            <div class="text-primary"><b>{{process.process}}{{process.id}}</b></div>
+            <div class="text-primary"><h4>{{process.process}}{{process.id}}</h4></div>
+<!--            <br>-->
             <div class="text-success">
-            <label>
-                <input type="radio"
+                <div>
+                    <input type="radio"
+                       id="prompt"
                        [(ngModel)]="response"
-                       value="{{prompt}}"
+                        value="A"
                        name="{{process.id}}"/>
-                {{process.prompt}}
-            </label>
+                    <label class="m-1" for="prompt">{{process.prompt}}</label>
+                    {{response}}
+                </div>
             <br>
-            <label>
-                <input type="radio"
+                <div>
+                    <input type="radio"
+                       id="prompt2"
                        [(ngModel)]="response2"
-                       value="{{prompt2}}"
+                        value="B"
                        name="{{process.id}}"/>
-                {{process.prompt2}}
-            </label>
+                    <label class="m-1" for="prompt2">{{process.prompt2}}</label>
+                    {{response2}}
+                </div>
             <br>
-            <label>
-                <input type="radio"
+                <div>
+                    <input type="radio"
+                       id="prompt3"
                        [(ngModel)]="response3"
-                       value="{{prompt3}}"
+                        value="C"
                        name="{{process.id}}"/>
-                {{process.prompt3}}
-            </label>
+                    <label class="m-1" for="prompt3">{{process.prompt3}}</label>
+                    {{response3}}
+                </div>
             <br>
-            <label>
-                <input type="radio"
+                <div>
+                    <input type="radio"
+                       id="prompt4"
                        [(ngModel)]="response4"
-                       value="{{prompt4}}"
+                       value="D"
                        name="{{process.id}}"/>
-                {{process.prompt4}}
-            </label>
+                    <label class="m-1" for="prompt4"> {{process.prompt4}} </label>
+                    {{response4}}
+                </div>
             </div>
         </label>
-
     </div>
 </div>
-</form>
-</div>
     <br>
-<div class="input-group justify-content-around m-3">
-    <button class="btn btn-success" type="submit" >Submit</button>
-    <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    <div class="input-group justify-content-around m-3">
+        <button class="btn btn-success" type="submit" >Submit</button>
+        <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
+    </div>
+</form>
 </div>
