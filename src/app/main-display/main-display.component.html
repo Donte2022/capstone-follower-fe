@@ -1,13 +1,6 @@
-<!--<div>-->
-<!--    <nav class="navbar navbar-light bg-primary">-->
-<!--        <div>-->
-<!--            -->
-<!--        </div>-->
-<!--    </nav>-->
-<!--</div>-->
 
 <div class="m-3">
-<h4 class="text-primary">Select A Stage</h4>
+<h4 class="input-group justify-content-center text-primary">Select A Stage</h4>
 </div>
 
 <div *ngFor=" let displayInfo of latestStageList" class="m-3">
@@ -18,6 +11,6 @@
         <div class="text-success"><b> End Date: </b> {{displayInfo.endDate | date}}</div>
 
 <div class="m-3">
-    <button (click)="takeSurvey(displayInfo)" class="btn btn-outline-primary">Start Survey</button>
+    <button (click)="takeSurvey(displayInfo)" class="btn btn-primary">Start Survey</button>
 </div>
 </div>

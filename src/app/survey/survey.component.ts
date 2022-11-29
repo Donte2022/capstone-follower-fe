@@ -85,4 +85,10 @@ export class SurveyComponent implements OnInit {
     this.displayService.$isViewingWelcome.next(true);
     this.surveyService.submitStage(completeStage.value);
   }
+
+  exitApp() {
+    this.displayService.$isViewingMain.next(false);
+    this.displayService.$isTakingSurvey.next(false);
+    this.displayService.$isViewingWelcome.next(true);
+  }
 }

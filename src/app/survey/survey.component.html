@@ -1,16 +1,19 @@
 
 <div>
-<form >
-<!--<div *ngFor=" let displayInfo of latestStageList" class="m-3">-->
-<!--&lt;!&ndash;    <div><b> ID: </b> {{displayInfo.id}}</div>&ndash;&gt;-->
-<!--&lt;!&ndash;    <div><b> Title ID: </b> {{displayInfo.i}}</div>&ndash;&gt;-->
-<!--&lt;!&ndash;    <div><b> Stage Title: </b> {{displayInfo.stageTitle}}</div>&ndash;&gt;-->
-<!--</div>-->
+    <nav class="navbar navbar-light bg-success bg-opacity-75">
+        <div class="input-group m-3 justify-content-end">
+            <button type="button" (click)="exitApp()" class="btn btn-primary">Exit</button>
+        </div>
+    </nav>
+</div>
 
+<div>
+<form >
 <div class="m-3">
     <div *ngFor="let process of latestPromptList">
         <label>
-            <div class="text-primary"><b>{{process.process}}</b></div>
+            <br>
+            <div class="text-primary"><b>{{process.process}}{{process.id}}</b></div>
             <div class="text-success">
             <label>
                 <input type="radio"
@@ -51,7 +54,7 @@
 </form>
 </div>
     <br>
-<div class="m-3">
-    <button class="btn btn-success opacity-75" type="submit" >Submit</button>
-    <button class="btn btn-primary opacity-75" (click)="onCancel()">Cancel</button>
+<div class="input-group justify-content-around m-3">
+    <button class="btn btn-success" type="submit" >Submit</button>
+    <button class="btn btn-primary" (click)="onCancel()">Cancel</button>
 </div>
