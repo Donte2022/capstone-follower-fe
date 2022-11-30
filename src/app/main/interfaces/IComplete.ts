@@ -2,6 +2,7 @@ export interface IComplete
 
 {
     id: number;
+    stageId: number;
     stageTitle: String;
     startDate: Date;
     endDate: Date;

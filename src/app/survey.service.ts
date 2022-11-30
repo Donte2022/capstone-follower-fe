@@ -24,6 +24,7 @@ export class SurveyService {
 
           const stage: IComplete = {
             id: completeStage.id,
+            stageId: completeStage.stageId,
             idOfTitle: completeStage.idOfTitle,
             stageTitle: completeStage.stageTitle,
             startDate: completeStage.startDate,
