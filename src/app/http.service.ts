@@ -13,7 +13,6 @@ import {ITitle} from "./main/interfaces/ITitle";
 export class HttpService {
 
   constructor(private httpClient: HttpClient) {
-
   }
 
   getStages() {
